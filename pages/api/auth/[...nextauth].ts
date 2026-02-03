@@ -68,7 +68,6 @@ export const authOptions: NextAuthOptions = {
 
     async session({ session, token }) {
       if (session.user && token.dbUserId) {
-        // @ts-expect-error custom field
         session.user.id = token.dbUserId as string;
       }
       return session;
